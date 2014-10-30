@@ -1,0 +1,18 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<form>
+  Type a Word:  <input type="text" id="word"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+$("form").submit(function() {
+	$.getJSON("fruitVendor1", "FruitName=" + $("#word").val(), function(data) {
+		console.log(data);
+		$("#answer").html(data.giveback);
+	});
+    return false;
+});
+</script>
+
+
+<div id="answer"></div>
